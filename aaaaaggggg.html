@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Foto Kelas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .photo {
+            width: 200px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #3498db;
+        }
+
+        .photo img {
+            width: 100%;
+            border-bottom: 3px solid #3498db;
+            transition: transform 0.3s;
+        }
+
+        .photo p {
+            padding: 10px;
+            margin: 0;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .photo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ddd;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #caption {
+            margin: 20px;
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            font-style: italic;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galeri Foto Kelas</h1>
+    </header>
+    
+    <main>
+        <section class="gallery">
+            <div class="photo" onclick="showPhoto('photo1')">
+                <img src="image/akademik.JPG" alt="Foto 1">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo2')">
+                <img src="image/foto putih biru.JPG" alt="Foto 2">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo3')">
+                <img src="image/foto ramean.JPG" alt="Foto 3">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo4')">
+                <img src="image/sirkel bilqis.JPG" alt="Foto 4">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo5')">
+                <img src="image/sirkel cowo2.JPG" alt="Foto 5">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo6')">
+                <img src="image/sirkel sazki.JPG" alt="Foto 6">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo7')">
+                <img src="image/sirkel kent.JPG" alt="Foto 7">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo8')">
+                <img src="image/DSC_0643.JPG" alt="Foto 8">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo9')">
+                <img src="image/aja.webp" alt="Foto 9">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo10')">
+                <img src="image/448207003_7643637229052243_5760121963997977542_n.webp" alt="Foto 10">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo11')">
+                <img src="image/IMG-20240825-WA0024.jpg" alt="Foto 11">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo12')">
+                <img src="image/IMG-20240825-WA0032.jpg" alt="Foto 12">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo13')">
+                <img src="image/WhatsApp Image 2024-08-25 at 21.18.16_747f0e60.jpg" alt="Foto 13">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo14')">
+                <img src="image/DSC_0596.JPG" alt="Foto 14">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+            <div class="photo" onclick="showPhoto('photo15')">
+                <img src="image/IMG-20240825-WA0027.jpg" alt="Foto 15">
+                <p>9-G CLASS PHOTOS</p>
+            </div>
+        </section>
+        
+        <div id="photoModal" class="modal">
+            <span class="close" onclick="closePhoto()">&times;</span>
+            <img id="modalImage" class="modal-content" src="">
+            <div id="caption"></div>
+        </div>
+    </main>
+    <script>
+        function showPhoto(photoId) {
+            var modal = document.getElementById('photoModal');
+            var modalImage = document.getElementById('modalImage');
+            var  caption = document.getElementById('caption');
+
+            // Set image source and caption based on photoId
+            switch(photoId) {
+                case 'photo1':
+                    modalImage.src = 'image/akademik.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo2':
+                    modalImage.src = 'image/foto putih biru.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo3':
+                    modalImage.src = 'image/foto ramean.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo4':
+                    modalImage.src = 'image/sirkel bilqis.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo5':
+                    modalImage.src = 'image/sirkel cowo2.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo6':
+                    modalImage.src = 'image/sirkel sazki.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo7':
+                    modalImage.src = 'image/sirkel kent.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo8':
+                    modalImage.src = 'image/DSC_0643.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo9':
+                    modalImage.src = 'image/aja.webp';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo10':
+                    modalImage.src = 'image/448207003_7643637229052243_5760121963997977542_n.webp';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo11':
+                    modalImage.src = 'image/IMG-20240825-WA0024.jpg';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo12':
+                    modalImage.src = 'image/IMG-20240825-WA0032.jpg';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo13':
+                    modalImage.src = 'image/WhatsApp Image 2024-08-25 at 21.18.16_747f0e60.jpg';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo14':
+                    modalImage.src = 'image/DSC_0596.JPG';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+                case 'photo15':
+                    modalImage.src = 'image/IMG-20240825-WA0027.jpg';
+                    caption.innerHTML = 'Foto Yang Memiliki Banyak Kenangan';
+                    break;
+            }
+
+            modal.style.display = 'block';
+        }
+
+        function closePhoto() {
+            var modal = document.getElementById('photoModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            var modal = document.getElementById('photoModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
